@@ -5,14 +5,26 @@ const PDFDocument = require("pdfkit");
 const fs = require("fs");
 const path = require("path");
 
-const app = express();
-const PORT = 3000;
+const uploadDir = path.join(__dirname, "uploads");
+const outputDir = path.join(__dirname, "output");
 
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+}
+
+if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+}
+
+
+
+const app = express();
+const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 const storage = multer.diskStorage({
-    destination: "uploads/",
+destination: uploadDir,    
     filename: (req, file, cb) => {
         cb(null, Date.now() + "-" + file.originalname);
     }
@@ -31,8 +43,10 @@ app.post("/upload", upload.single("image"), async (req, res) => {
         const inputPath = req.file.path;
         const quality = Number(req.body.quality) || 60;
 
-        const outputPath =
-            path.join("output", "compressed-" + req.file.filename);
+        const outputPath = path.join(
+    outputDir,
+    "compressed-" + req.file.filename
+);
 
         await sharp(inputPath)
             .jpeg({ quality })
@@ -98,8 +112,9 @@ console.log("Image Fit :", imageFit);
 const safePdfName = pdfName.replace(/[\\/:*?"<>|]/g, "_");
 
 const finalPdfName = safePdfName + ".pdf";
-const pdfPath = path.join(__dirname, "output", finalPdfName);
-    const doc = new PDFDocument({
+const pdfPath = path.join(outputDir, finalPdfName);
+
+const doc = new PDFDocument({
     autoFirstPage: false,
     size: pageSize,
     layout: orientation
@@ -208,15 +223,13 @@ download: "/output/" + finalPdfName
    DOWNLOAD FOLDER
 ===================================== */
 
-app.use("/download", express.static("output"));
-app.use("/output", express.static("output"));
+app.use("/download", express.static(outputDir));
+app.use("/output", express.static(outputDir));
 
 /* =====================================
    START SERVER
 ===================================== */
 
 app.listen(PORT, () => {
-
-    console.log(`Server running at http://localhost:${PORT}`);
-
+    console.log(`✅ Server running on port ${PORT}`);
 });
