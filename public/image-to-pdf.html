@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Image to PDF | SimpleTool</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        🛠 SimpleTool
+    </div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="index.html#tools">Tools</a>
+
+        <a href="#">Pricing</a>
+
+        <a href="#">About</a>
+
+    </nav>
+
+    <div class="nav-buttons">
+
+        <button class="login-btn">Login</button>
+
+        <button class="signup-btn">Sign Up</button>
+
+    </div>
+
+</header>
+
+<section class="hero">
+
+    <h1>Image to PDF</h1>
+
+    <p>
+
+        Convert JPG, PNG and WEBP images into one PDF document.
+
+    </p>
+
+</section>
+
+<section class="upload-card">
+
+    <h2>📄 Image to PDF</h2>
+
+    <form id="pdf-form">
+
+        <div id="drop-area">
+
+            <div class="upload-icon">
+    📄
+</div>
+
+<h2 class="upload-title">
+    Image to PDF
+</h2>
+
+<p class="upload-text">
+    Drag & Drop your images here
+</p>
+
+<p class="upload-or">
+    OR
+</p>
+
+<button type="button" id="choose-btn">
+    Choose Images
+</button>
+
+<input
+type="file"
+id="images"
+name="images"
+accept="image/*"
+multiple
+hidden>
+
+<p class="file-types">
+JPG • PNG • WEBP Supported
+</p>
+
+        </div>
+
+        <p id="file-name">
+
+            No images selected
+
+        </p>
+        <p id="image-count">
+0 Images Selected
+</p>
+
+        <div id="preview-container">
+
+        </div>
+        <div class="pdf-info">
+
+<h3>PDF Information</h3>
+
+<p id="total-images">
+Images : 0
+</p>
+
+<p id="estimated-pages">
+Pages : 0
+</p>
+
+</div>
+
+<div class="pdf-settings">
+
+<h3>PDF Settings</h3>
+
+<label>
+Page Size
+</label>
+
+<select id="page-size">
+
+<option value="A4">A4</option>
+
+<option value="LETTER">Letter</option>
+
+<option value="LEGAL">Legal</option>
+
+</select>
+
+<label>
+Orientation
+</label>
+
+<select id="orientation">
+
+<option value="portrait">Portrait</option>
+
+<option value="landscape">Landscape</option>
+
+</select>
+
+<label>
+Image Fit
+</label>
+
+<select id="image-fit" name="imageFit">
+
+    <option value="fit" selected>
+        Fit to Page
+    </option>
+
+    <option value="fill">
+        Fill Page
+    </option>
+
+</select>
+<label>
+PDF Quality
+</label>
+
+<select id="pdf-quality">
+
+    <option value="100">High Quality</option>
+
+    <option value="80" selected>Medium Quality</option>
+
+    <option value="60">Low Quality</option>
+
+</select>
+<label>
+PDF File Name
+</label>
+
+<input
+type="text"
+id="pdf-name"
+placeholder="My PDF"
+value="My PDF">
+
+</select>
+
+</div>
+
+        <br>
+
+        
+
+           <button type="submit" id="convert-btn">
+    Convert to PDF
+</button>
+
+<div id="loading-box">
+
+    <p id="loading-text">
+        Generating PDF...
+    </p>
+
+    <div id="loading-bar">
+        <div id="loading-progress"></div>
+    </div>
+
+   
+
+    <p id="loading-percent">
+        0%
+    </p>
+
+</div>
+
+    </form>
+
+</section>
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <h3>SimpleTool</h3>
+
+            <p>
+
+                Fast, Secure and Free online file tools.
+
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Quick Links</h3>
+
+            <a href="index.html">Home</a>
+
+            <a href="#">About</a>
+
+            <a href="#">Contact</a>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Tools</h3>
+
+            <a href="compress.html">Image Compressor</a>
+
+            <a href="image-to-pdf.html">Image to PDF</a>
+
+        </div>
+
+    </div>
+
+</footer>
+<script src="image-to-pdf.js"></script>
+</body>
+
+</html>

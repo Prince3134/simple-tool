@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Image Compressor | SimpleTool</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===========================
+     Navbar
+=========================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        🛠 SimpleTool
+
+    </div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="index.html#tools">Tools</a>
+
+        <a href="#">Pricing</a>
+
+        <a href="#">About</a>
+
+    </nav>
+
+    <div class="nav-buttons">
+
+        <button class="login-btn">
+
+            Login
+
+        </button>
+
+        <button class="signup-btn">
+
+            Sign Up
+
+        </button>
+
+    </div>
+
+</header>
+
+<!-- ===========================
+     Hero
+=========================== -->
+
+<section class="hero">
+
+    <h1>Compress Images Online</h1>
+
+    <p>
+
+        Reduce JPG, PNG and WEBP image size
+        without losing quality.
+
+    </p>
+
+</section>
+
+<!-- ===========================
+     Upload Tool
+=========================== -->
+
+<section class="upload-card">
+
+    <h2>📁 Choose Image</h2>
+
+    <form
+        action="/upload"
+        method="POST"
+        enctype="multipart/form-data">
+
+        <div id="drop-area">
+
+            <p class="upload-text">
+
+                Drag & Drop Image Here
+
+            </p>
+
+            <p>OR</p>
+
+            <button
+                type="button"
+                id="choose-btn">
+
+                Choose File
+
+            </button>
+
+            <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                style="display:none;"
+                required>
+
+        </div>
+
+        <p id="file-name">
+
+            No file selected
+
+        </p>
+
+        <div id="preview-box">
+
+            <img
+                id="preview-image"
+                src=""
+                alt="Preview">
+
+            <p id="image-size"></p>
+
+            <p id="image-dimension"></p>
+
+            <button
+                type="button"
+                id="remove-image">
+
+                Remove Image
+
+            </button>
+
+        </div>
+
+        <br>
+
+        <label for="quality">
+
+            Compression Quality
+
+        </label>
+
+        <input
+            type="range"
+            id="quality"
+            name="quality"
+            min="10"
+            max="100"
+            value="60">
+
+        <p id="quality-value">
+
+            60%
+
+        </p>
+
+        <button type="submit">
+
+            Compress Image
+
+        </button>
+
+        <hr>
+
+        <a
+            id="download-link"
+            href="#"
+            download
+            style="display:none;">
+
+            <button type="button">
+
+                Download Image
+
+            </button>
+
+        </a>
+
+        <div id="progress-container">
+
+            <div id="progress-bar"></div>
+
+        </div>
+
+        <p id="progress-text">
+
+            0%
+
+        </p>
+
+        <div id="result-box">
+
+            <h3>
+
+                Compression Result
+
+            </h3>
+
+            <p id="original-size"></p>
+
+            <p id="compressed-size"></p>
+
+            <p id="saved-size"></p>
+
+            <p id="status"></p>
+
+        </div>
+
+    </form>
+
+</section>
+
+<!-- ===========================
+     Footer
+=========================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <h3>SimpleTool</h3>
+
+            <p>
+
+                Fast, Secure and Free online tools.
+
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Tools</h3>
+
+            <a href="compress.html">
+
+                Image Compressor
+
+            </a>
+
+            <a href="image-to-pdf.html">
+
+                Image to PDF
+
+            </a>
+
+            <a href="merge-pdf.html">
+
+                Merge PDF
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <p class="copyright">
+
+        © 2026 SimpleTool
+
+    </p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
